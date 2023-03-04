@@ -1,6 +1,10 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const titleschema = new Schema({
+const notesSchema = new Schema({
+    user:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'user_obj'
+    },
     title: {
         type: String,
         required: true
@@ -8,11 +12,9 @@ const titleschema = new Schema({
     discription: {
         type: String,
         required: true,
-
     },
     tags: {
         type: String,
-   
     },
     date: {
         type: Date,
@@ -21,4 +23,4 @@ const titleschema = new Schema({
 
 });
 
-export default mongoose.model('notes', titleschema)
+module.exports = mongoose.model('notes_obj', notesSchema)

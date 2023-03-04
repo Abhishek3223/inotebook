@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const userSchema = new Schema({
     name: {
@@ -7,7 +7,11 @@ const userSchema = new Schema({
     }, // String is shorthand for {type: String}
     email: {
         type: String,
-        required: true, unique: true
+        require: true,
+        index: true,
+        unique: true,
+        sparse: true
+
     },
     password: {
         type: String,
@@ -16,8 +20,11 @@ const userSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
-    },
+    }
 
 });
 
-export default mongoose.model('user', userSchema)
+
+module.exports = mongoose.model('user_obj', userSchema)
+
+//***  here user_obj is the collection name where this data is  going to be stored 

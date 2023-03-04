@@ -1,14 +1,19 @@
-import conectToMongo from "./db.js"
-import  Express  from "express"
+const conectToMongo = require("./db")
+const Express = require("express")
 
 conectToMongo();
+var cors = require('cors')
+
+
 
 const app = Express()
-const  port = 3000
+app.use(cors())
+const port = 5000
 
+app.use(Express.json())
 // availabe rotes
-app.use('/api/auth',require('./routes/auth'))
-app.use('/api/notes',require('./routes/notes'))
+app.use('/api/auth', require('./routes/auth'))
+app.use('/api/notes', require('./routes/notes'))
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })

@@ -1,0 +1,9 @@
+
+    //----------------- tips to send a json file -----------------
+    // obj = {
+    //     name: "abhis",
+    //     roolNUmber: 34,
+    //     nickname:"paglet"
+    // };
+    // res.json(obj);
+    // res.end(JSON.stringify(obj));
